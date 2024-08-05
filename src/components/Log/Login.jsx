@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import {login} from "../utils/fetch";
+import {login} from "../../utils/fetch";
+import styled from "styled-components";
 
  
 const Login = ({ setUser }) => {
-  const { email, setEmail } = useState("");
-  const { password, setPassword } = useState("");
+  const [ username, setUsername ] = useState("");
+  const [password, setPassword ] = useState("");
 
   const handleLogin = async (event) => {
     event.preventDefault();

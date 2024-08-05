@@ -1,4 +1,7 @@
 import "./App.css";
+import { signup } from "./components/Sign/Signup";
+import { login } from "./components/Log"
+
 
 function App() {
   console.log(import.meta.env.VITE_COOL_TEST);
