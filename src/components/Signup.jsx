@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { signup } from "../..utils/fetch";
+import { signup } from "../utils/fetch";
 import styled from "styled-components";
 
-const Signup = ({}) => {
+const Signup = ({ setLogSign }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -11,11 +11,17 @@ const Signup = ({}) => {
     event.preventDefault();
     console.log("submit Handler");
 
-    const data = await signup(username, email, password);
-    console.log("data in signup: ", data);
+   
+    try {
+      const data = await signup(username, email, password);
+      console.log("data in signup: ", data);
 
-    setLogSign.setIsLoggedIn(true);
-    setLogSign.setUserLogged({ username });
+
+      setLogSign.setIsLoggedIn(true);
+      setLogSign.setUserLogged({ username });
+    } catch (error) {
+      console.error("Signup error:", error);
+    }
   };
 
   return (
@@ -51,6 +57,7 @@ const Signup = ({}) => {
     </FormContainer>
   );
 };
+
 export default Signup;
 
 // Styled Components

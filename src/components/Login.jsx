@@ -9,17 +9,7 @@ const Login = ({ setUser }) => {
   const handleLogin = async (event) => {
     event.preventDefault();
 
-    try {
-      //   const response = await fetch("http://localhost:5001/users/login", {
-      //     method: "POST",
-      //     header: {
-      //       "Content-Type": "application/json",
-      //     },
-      //     body: JSON.stringify({ email, password }),
-      //   });
-      //   if (response.ok) {
-      //     throw new error("login failed");
-      //   }
+    try{
       const data = await response.json();
       setUser(data.user);
       writeCookies("jwt_token", data, token, 7);
