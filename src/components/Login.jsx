@@ -1,30 +1,28 @@
 import React, { useState } from "react";
-import {login} from "../../utils/fetch";
+import { login } from "../utils/fetch";
 import styled from "styled-components";
 
- 
 const Login = ({ setUser }) => {
-  const [ username, setUsername ] = useState("");
-  const [password, setPassword ] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleLogin = async (event) => {
     event.preventDefault();
 
     try {
-    //   const response = await fetch("http://localhost:5001/users/login", {
-    //     method: "POST",
-    //     header: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({ email, password }),
-    //   });
-    //   if (response.ok) {
-    //     throw new error("login failed");
-    //   }
+      //   const response = await fetch("http://localhost:5001/users/login", {
+      //     method: "POST",
+      //     header: {
+      //       "Content-Type": "application/json",
+      //     },
+      //     body: JSON.stringify({ email, password }),
+      //   });
+      //   if (response.ok) {
+      //     throw new error("login failed");
+      //   }
       const data = await response.json();
       setUser(data.user);
       writeCookies("jwt_token", data, token, 7);
-     
     } catch (error) {
       console.error(error);
     }
@@ -54,6 +52,5 @@ const Login = ({ setUser }) => {
     </>
   );
 };
-
 
 export default Login;
